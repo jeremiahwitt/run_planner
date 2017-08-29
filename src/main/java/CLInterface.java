@@ -2,7 +2,6 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,12 +10,15 @@ public class CLInterface {
         Scanner kb = new Scanner(System.in);
         double race_distance = 0;
         String race_date;
+        String race_time;
 
         race_distance = getRaceDistance(kb);
         System.out.printf("You will be running %.2f km\n", race_distance);
 
         race_date = getRaceDate(kb);
         System.out.printf("You will be racing on %s\n", race_date);
+
+        race_time = getRaceTime(kb);
     }
 
     /**
@@ -50,6 +52,12 @@ public class CLInterface {
         return distance;
     }
 
+    /**
+     * Returns a String, indicating the date of the user's race.
+     * The string is in the format YYYY-MM-DD
+     * @param kb - Scanner, used to get input from the user
+     * @return String, which is the date of the race
+     */
     private static String getRaceDate(Scanner kb) {
         String date_string;
         boolean valid = false;
@@ -64,6 +72,13 @@ public class CLInterface {
         return date_string;
     }
 
+    /**
+     * Returns whether or not a String is in the format YYYY-MM-DD.
+     * Verifies also that the month and days are valid (although it doesn't check that the day # actually exists for
+     * the month.
+     * @param date_string - String to be checked
+     * @return boolean - true if in the format YYYY-MM-DD, false otherwise
+     */
     private static boolean isDateStringValid(String date_string) {
 
         String[] dates;
@@ -99,5 +114,26 @@ public class CLInterface {
 
         return true;
     }
+
+    private static String getRaceTime(Scanner kb) {
+        String race_time;
+        boolean valid = false;
+
+        do {
+            System.out.println("\nPlease enter the time you would like to finish the race (HH:MM:SS): ");
+            race_time = kb.nextLine();
+
+            valid = isRaceTimeValid(race_time);
+        } while (!valid) ;
+
+        return race_time;
+
+    }
+
+    private static boolean isRaceTimeValid(String race_time) {
+        return race_time.matches("\\d{2}:[0-5][0-9]:[0-5][0-9]");
+    }
 }
+
+
 
