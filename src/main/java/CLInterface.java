@@ -115,6 +115,12 @@ public class CLInterface {
         return true;
     }
 
+    /**
+     * Returns from the user the time that they want to finish their race in.
+     * The time returned is a String in the format HH:MM:SS
+     * @param kb - Scanner which will get input from the user
+     * @return String, representing a time (HH:MM:SS)
+     */
     private static String getRaceTime(Scanner kb) {
         String race_time;
         boolean valid = false;
@@ -130,6 +136,12 @@ public class CLInterface {
 
     }
 
+    /**
+     * Checks if a String is in the format HH:MM:SS.
+     * Also verifies that the min and sec are between 00 and 59
+     * @param race_time - String to be checked
+     * @return boolean, true if race_time is valid, false otherwise
+     */
     private static boolean isRaceTimeValid(String race_time) {
         return race_time.matches("\\d{2}:[0-5][0-9]:[0-5][0-9]");
     }
