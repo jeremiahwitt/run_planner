@@ -6,6 +6,6 @@ task wrapper(type: Wrapper) {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'HelloWorld'
+        attributes 'Main-Class': 'UserInterface'
     }
 }
