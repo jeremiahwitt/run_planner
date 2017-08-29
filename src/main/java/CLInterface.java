@@ -6,19 +6,25 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CLInterface {
-    public static void main(String[] args){
+    public static void main(String[] args) throws ParseException {
         Scanner kb = new Scanner(System.in);
         double race_distance = 0;
-        String race_date;
+        String date_string;
         String race_time;
 
         race_distance = getRaceDistance(kb);
         System.out.printf("You will be running %.2f km\n", race_distance);
 
-        race_date = getRaceDate(kb);
-        System.out.printf("You will be racing on %s\n", race_date);
+        date_string = getRaceDate(kb);
+        System.out.printf("You will be racing on %s\n", date_string);
 
         race_time = getRaceTime(kb);
+        System.out.printf("You will try to finish your race in %s\n", race_time);
+
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date race_date = format.parse(date_string);
+
+        Race desired_race = new Race(race_distance, race_date, race_time);
     }
 
     /**
