@@ -11,20 +11,24 @@ public class CLInterface {
         double race_distance = 0;
         String date_string;
         String race_time;
+        int num_weeks;
 
         race_distance = getRaceDistance(kb);
-        System.out.printf("You will be running %.2f km\n", race_distance);
-
         date_string = getRaceDate(kb);
-        System.out.printf("You will be racing on %s\n", date_string);
-
         race_time = getRaceTime(kb);
-        System.out.printf("You will try to finish your race in %s\n", race_time);
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date race_date = format.parse(date_string);
 
         Race desired_race = new Race(race_distance, race_date, race_time);
+
+        System.out.printf("You will be running %.2f km\n", desired_race.getRaceDistance());
+        System.out.printf("You will be racing on %s\n", desired_race.getRaceDate());
+        System.out.printf("You will try to finish your race in %s\n", desired_race.getFinishTime());
+
+        num_weeks = getNumWeeks(kb);
+
+        System.out.printf("You will be training for %d weeks\n", num_weeks);
     }
 
     /**
@@ -150,6 +154,33 @@ public class CLInterface {
      */
     private static boolean isRaceTimeValid(String race_time) {
         return race_time.matches("\\d{2}:[0-5][0-9]:[0-5][0-9]");
+    }
+
+    /**
+     * Gets from the user the number of weeks that they want to train for
+     * @param kb - Scanner, which will be used to get input from the user
+     * @return int, which is the number of weeks to train for
+     */
+    private static int getNumWeeks(Scanner kb) {
+        boolean valid = false;
+        int numWeeks = 0;
+        do {
+            try {
+                System.out.println("\nPlease enter how many weeks you would like to train for: ");
+                numWeeks = kb.nextInt();
+
+                if(numWeeks > 0) {
+                    valid = true;
+                } else {
+                    System.out.println("Please enter a number greater than 0");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("You entered an invalid number: " + e.getMessage());
+                kb.nextLine();
+            }
+        } while (!valid);
+
+        return numWeeks;
     }
 }
 
