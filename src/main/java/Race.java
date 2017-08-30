@@ -1,5 +1,10 @@
 import java.util.Date;
 
+/**
+ * A Race represents the abstract concept of the race that the user wants to complete. It stores information about
+ * the user's goals regarding the race (ie distance, desired finish time, etc). This information can be used in
+ * order to generate a TrainingPlan for the Race.
+ */
 public class Race {
 
     private double race_distance;
