@@ -104,7 +104,6 @@ public class CLInterface {
             return false;
         }
 
-
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date testDate = format.parse(date_string);
