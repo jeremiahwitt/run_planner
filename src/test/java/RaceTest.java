@@ -1,4 +1,5 @@
 import org.junit.Test;
+import race.Race;
 
 import static org.junit.Assert.assertEquals;
 

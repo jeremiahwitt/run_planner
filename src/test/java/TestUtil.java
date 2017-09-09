@@ -1,3 +1,5 @@
+import race.Race;
+
 import java.util.Date;
 
 /**

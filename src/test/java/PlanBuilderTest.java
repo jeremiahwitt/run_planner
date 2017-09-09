@@ -1,4 +1,7 @@
 import org.junit.Test;
+import plan_builder.PlanBuilderHelper;
+import race.Race;
+
 import static org.junit.Assert.assertEquals;
 
 /**
