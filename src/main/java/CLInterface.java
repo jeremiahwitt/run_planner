@@ -14,6 +14,7 @@ public class CLInterface {
         String date_string;
         String race_time;
         int num_weeks;
+        double comfortable_long_run;
 
         race_distance = getRaceDistance(kb);
         date_string = getRaceDate(kb);
@@ -29,8 +30,35 @@ public class CLInterface {
         System.out.printf("You will try to finish your race in %s\n", desired_race.getFinishTime());
 
         num_weeks = getNumWeeks(kb);
+        comfortable_long_run = getComfortableLongRun(kb);
 
         System.out.printf("You will be training for %d weeks\n", num_weeks);
+    }
+
+    private static double getComfortableLongRun(Scanner kb) {
+        double distance = 0;
+
+        boolean valid = false;
+
+        do {
+            try {
+                System.out.println("\nPlease enter the long-run distance that you can run comfortable (km)");
+                System.out.println("\nYou should be able to complete this run once a week, without much trouble: ");
+                distance = kb.nextDouble();
+
+                if (distance > 0) {
+                    valid = true;
+                } else {
+                    System.out.println("Please enter a value greater than 0");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("You entered an invalid number: " + e.getMessage());
+                kb.nextLine();
+            }
+        } while (!valid);
+        kb.nextLine();
+
+        return distance;
     }
 
     /**

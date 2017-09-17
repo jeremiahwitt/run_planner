@@ -7,7 +7,10 @@ import race.Race;
  */
 public class PlanBuilder {
 
-    public void createPlan(Race race) {
+    public void createPlan(Race race, TrainingPlanBase basePlan) {
+        double targetLongRun = PlanBuilderHelper.getTargetLongRun(race);
+        double baseLongRun = PlanBuilderHelper.getBaseLongRun(basePlan);
+        // Then calc base long run, then calc the weekly increase
 
     }
 }

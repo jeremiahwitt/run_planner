@@ -7,19 +7,19 @@ public class RaceTest {
 
     @Test
     public void testGetRaceDistance() {
-        Race testRace = TestUtil.getRace();
-        assertEquals(TestUtil.TEST_DISTANCE, testRace.getRaceDistance(), 0);
+        Race testRace = TestUtil.get5kRace();
+        assertEquals(TestUtil.TEST_5K_DISTANCE, testRace.getRaceDistance(), 0);
     }
 
     @Test
     public void testGetRaceDate() {
-        Race testRace = TestUtil.getRace();
+        Race testRace = TestUtil.get5kRace();
         assertEquals(TestUtil.EPOCH_DATE, testRace.getRaceDate().getTime());
     }
 
     @Test
     public void testGetRaceFinishTime() {
-        Race testRace = TestUtil.getRace();
+        Race testRace = TestUtil.get5kRace();
         assertEquals(TestUtil.TEST_TIME, testRace.getFinishTime());
     }
 
