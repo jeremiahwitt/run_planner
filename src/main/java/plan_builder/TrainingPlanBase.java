@@ -5,13 +5,19 @@ package plan_builder;
  */
 public class TrainingPlanBase {
 
-    private double comfortableLongRun;
+    private double comfortableLongRun; /** The longest distance the user is comfortable running 1/week */
+    private int numWeeks; /** Number of weeks the training will go on for */
 
-    public TrainingPlanBase(double comfortableLongRun) {
+    public TrainingPlanBase(double comfortableLongRun, int numWeeks) {
         this.comfortableLongRun = comfortableLongRun;
+        this.numWeeks = numWeeks;
     }
 
     public double getComfortableLongRun() {
         return comfortableLongRun;
+    }
+
+    public int getNumWeeks() {
+        return numWeeks;
     }
 }

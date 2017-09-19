@@ -16,7 +16,7 @@ public class PlanBuilderHelper {
      * @return double, based on this rules indicated above
      */
     public static double getTargetLongRun(Race race) {
-        double longRunDistance = 0;
+        double longRunDistance;
         if (race.getRaceDistance() <= 5 ) {
             return race.getRaceDistance();
         } else {
